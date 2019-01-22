@@ -13,8 +13,7 @@
 //   buzz
 
 function fizzBuzz(n) {
-    console.log(1)
-   for(let val = 2; val<=n; val++){
+   for(let val = 1; val<=n; val++){
        if(val%3 === 0 && val%5 === 0){
            console.log("fizzbuzz")
        } else if (val%5 === 0){
