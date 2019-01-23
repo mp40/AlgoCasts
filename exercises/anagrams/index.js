@@ -9,28 +9,45 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    const mappedA = mapStr(stringA)
-    const mappedB = mapStr(stringB)
+    const strA = mapStr(stringA)
+    const strB = mapStr(stringB)
 
-    if(Object.keys(mappedA).length !== Object.keys(mappedB).length){
-        return false
-    }
-    
-    for(key in mappedA){
-        if(mappedA[key] !== mappedB[key]){
-            return false
-        }
-    }
-    return true
+    return strA === strB 
 }
 
 function mapStr(str){
-    let obj = {}
+    let arr = []
     for(let char of str.replace(/[^\w]/g,"").toLowerCase()){
-        obj[char] ? obj[char]+1 : obj[char] = 1
+        arr.push(char)
     }
-    return obj
+    return arr.sort().join('')
 }
+
+//refactored first attempt
+// function anagrams(stringA, stringB) {
+//     const mappedA = mapStr(stringA)
+//     const mappedB = mapStr(stringB)
+
+//     if(Object.keys(mappedA).length !== Object.keys(mappedB).length){
+//         return false
+//     }
+    
+//     for(key in mappedA){
+//         if(mappedA[key] !== mappedB[key]){
+//             return false
+//         }
+//     }
+//     return true
+// }
+
+// function mapStr(str){
+//     let obj = {}
+//     for(let char of str.replace(/[^\w]/g,"").toLowerCase()){
+//         obj[char] ? obj[char]+1 : obj[char] = 1
+//     }
+//     return obj
+// }
+
 
 //first attempt
 // function anagrams(stringA, stringB) {
