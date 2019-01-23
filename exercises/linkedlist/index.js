@@ -43,6 +43,49 @@ class LinkedList {
     removeFirst(){
         this.head = this.head.next
     }
+    removeLast(){
+        if(!this.head){
+            return
+        }
+        if(!this.head.next){
+            this.head = null
+            return
+        }
+
+        let node = this.head
+        let lastNode = undefined
+
+        while(node){
+            if (!node.next){
+                lastNode.next = null
+            }
+            lastNode = node
+            node = node.next
+        }
+    }
+    insertLast(data){
+        if(!this.head){
+            this.head = new Node(data)
+            return
+        }
+
+        this.getLast().next = new Node(data)
+    }
+    getAt(index){
+        if(index === 0){
+            return this.head
+        }
+        let counter = 0
+        let node = this.head
+        while(node){
+            if(counter === index){
+                return node
+            }
+            counter++
+            node = node.next
+        }
+        return null
+    }
     
 }
 
