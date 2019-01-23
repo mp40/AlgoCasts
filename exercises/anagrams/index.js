@@ -16,11 +16,10 @@ function anagrams(stringA, stringB) {
 }
 
 function mapStr(str){
-    let arr = []
-    for(let char of str.replace(/[^\w]/g,"").toLowerCase()){
-        arr.push(char)
-    }
-    return arr.sort().join('')
+    return str.replace(/[^\w]/g,"")
+    .toLowerCase().
+    split('')
+    .sort().join('')
 }
 
 //refactored first attempt
