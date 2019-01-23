@@ -10,19 +10,30 @@
 
 function chunk(array, size) {
     let result = []
+    let dex = 0
     for(let i=0; i<array.length/size; i++){
-        result.push([])
+        result.push(array.slice(dex,size+dex))
+        dex += size
     }
-
-    let count = 0
-    for (let i=0; i<array.length; i++){
-        result[count].push(array[i]);
-        if((i+1) % size === 0){
-            count++
-        }
-    }
-
     return result
 }
+
+// first attempt
+// function chunk(array, size) {
+//     let result = []
+//     for(let i=0; i<array.length/size; i++){
+//         result.push([])
+//     }
+
+//     let count = 0
+//     for (let i=0; i<array.length; i++){
+//         result[count].push(array[i]);
+//         if((i+1) % size === 0){
+//             count++
+//         }
+//     }
+
+//     return result
+// }
 
 module.exports = chunk;
